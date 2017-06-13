@@ -4,8 +4,7 @@ MyMovie portal is a movies website which displays a list of latest movies releas
 
 The below url returns currently running movies - 
 
-https://api.themoviedb.org/3/movie/now_playing?api_key=55957fcf3ba81b137f8fc01ac5a31fb5&langua
-ge=en-US&page=undefined
+https://api.themoviedb.org/3/movie/now_playing?api_key=55957fcf3ba81b137f8fc01ac5a31fb5&language=en-US&page=undefined
 
 and the detailed information of a particular movie was retrieved using the url -
 

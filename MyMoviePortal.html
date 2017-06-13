@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Movie Portal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+    
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+      margin-bottom: 0;
+    }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+      
+      .img-responsive {
+          
+          height: 400px;
+      }
+      
+      .dropdown-menu {
+          
+          background-color: #D8D8D8;
+          
+      }
+      
+      .about-desc {
+          
+          font-size: 170%;
+          font-family: 'Shadows Into Light Two', cursive;
+          color: #0B610B;
+      }
+      
+      
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center"> 
+    <h1>My Movie Portal</h1> 
+    <p>Search, Select & View Details</p>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#"><i class="fa fa-film" aria-hidden="true"></i></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+          <li><a href="#now-showing">Now showing</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Theaters near you
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="https://www.amctheatres.com/">AMC</a></li>
+        <li><a href="https://www.imax.com/">IMAX</a></li>
+        <li><a href="https://www.cinemark.com/california-bay-area/century-cinema-16">Century Cinemas</a></li>
+        </ul>
+      </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container" id="about">
+    
+    <div id="movie-main-display">
+        
+        <h1>About us!</h1>
+        
+        <p class="about-desc">Hello movie lovers! Welcome to the Movie Portal... </p>
+        
+        <p class="about-desc">Browse the latest movie releases, read about them and book your tickets online at any movie theater by selecting any of the theaters near you </p>
+    
+    </div>
+    
+</div>
+
+<div class="container" id="now-showing"> 
+    
+    <h1>NOW SHOWING!</h1>
+  <div class="row" id="movie-list">
+    
+  </div>
+    
+    
+</div><br><br>
+
+<footer class="container-fluid text-center">
+  <p><i class="fa fa-copyright" aria-hidden="true"></i>MyMovieBlog</p>  
+</footer>
+    
+    <script type="text/javascript">
+    
+       var url = "https://api.themoviedb.org/3/movie/now_playing?api_key=55957fcf3ba81b137f8fc01ac5a31fb5&language=en-US&page=undefined";
+          
+          var poster_url = "https://image.tmdb.org/t/p/w780";
+          
+          var api_key = "api_key=55957fcf3ba81b137f8fc01ac5a31fb5";
+      
+          var myJson;
+          
+          var x = "";
+        
+         $.getJSON(url, function(json) {
+              
+              myJson = json;
+              
+              for( var i in myJson.results) {
+                  
+                  x  += "<div class='col-sm-4'><div class='panel panel-primary' ><div class='panel-heading' > "+myJson.results[i].title +" </div><div class='panel-body' ><img class='img-responsive' id='movie-panel' src = "+poster_url+myJson.results[i].poster_path +" style='width:100%' alt='Image'></div><div class='panel-footer'><a href='MyMoviePortalDetails.html?movie_id="+ myJson.results[i].id +"'>View More Details</a></div></div></div>";
+              }
+              
+              
+              document.getElementById("movie-list").innerHTML =  x ;
+              
+             
+          });
+        
+        
+        
+        
+        
+    </script>
+
+</body>
+</html>

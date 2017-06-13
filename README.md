@@ -28,5 +28,6 @@ Frameworks used -
 
 (1) Bootstrap
 (2) Bootstrap template - Online store (https://www.w3schools.com/bootstrap/bootstrap_templates.asp)
+(3) All icons used from - http://fontawesome.io/icons/
 
 screenshot images attached.

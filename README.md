@@ -29,4 +29,7 @@ Frameworks used -
 (2) Bootstrap template - Online store (https://www.w3schools.com/bootstrap/bootstrap_templates.asp)
 (3) All icons used from - http://fontawesome.io/icons/
 
+Data available in the form of JSON script and was extracted using the jQuery getJSON() method. 
+
 screenshot images attached.
+
